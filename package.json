@@ -14,16 +14,27 @@
       "types": "./dist/adapter.d.ts"
     }
   },
-  "files": ["dist"],
-  "engines": { "node": ">=22.12.0" },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "license": "Apache-2.0",
-  "repository": { "type": "git", "url": "git+https://github.com/zitadel/tanstack-start-auth.git" },
-  "author": { "name": "Mridang Agarwalla", "email": "mridang@zitadel.com", "url": "https://github.com/zitadel" },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zitadel/tanstack-start-auth.git"
+  },
+  "author": {
+    "name": "Mridang Agarwalla",
+    "email": "mridang@zitadel.com",
+    "url": "https://github.com/zitadel"
+  },
   "scripts": {
     "prepack": "tsc",
     "prepare": "npm run build",
     "build": "tsup",
-    "test": "jest --verbose --config=jest.config.mjs --runInBand",
+    "test": "jest --verbose --config=jest.config.mjs --runInBand --passWithNoTests",
     "test:watch": "npm run test -- --watch",
     "test:debug": "jest --verbose --config=jest.config.mjs --runInBand --detectOpenHandles",
     "format": "prettier --write .",
@@ -63,9 +74,20 @@
     "typedoc": "^0.28.7",
     "typescript": "^5.9.3"
   },
-  "keywords": ["tanstack", "tanstack-start", "react", "auth", "authentication", "oauth", "authjs", "@auth/core"],
+  "keywords": [
+    "tanstack",
+    "tanstack-start",
+    "react",
+    "auth",
+    "authentication",
+    "oauth",
+    "authjs",
+    "@auth/core"
+  ],
   "private": false,
   "homepage": "https://github.com/zitadel/tanstack-start-auth",
   "bugs": "https://github.com/zitadel/tanstack-start-auth/issues",
-  "publishConfig": { "access": "public" }
+  "publishConfig": {
+    "access": "public"
+  }
 }
