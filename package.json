@@ -1,5 +1,5 @@
 {
-  "name": "@zitadel/tanstack-start-auth",
+  "name": "@zitadel/tanstack-auth",
   "description": "A comprehensive Auth.js integration for TanStack Start applications with TypeScript support and session management",
   "version": "0.1.0",
   "type": "module",

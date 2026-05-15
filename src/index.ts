@@ -39,7 +39,7 @@ export type AuthRequestContext = {
  * @example
  * ```ts
  * // app/auth.server.ts
- * import { TanStackAuth } from '@zitadel/tanstack-start-auth';
+ * import { TanStackAuth } from '@zitadel/tanstack-auth';
  * import Zitadel from '@auth/core/providers/zitadel';
  *
  * export const { handlers, getSession, auth } = TanStackAuth({
