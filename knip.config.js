@@ -11,5 +11,6 @@ module.exports = {
     '@semantic-release/.*?',
     '@jest/globals',
     '@types/react',
+    'jest-environment-jsdom',
   ],
 };

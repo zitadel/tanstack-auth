@@ -4,7 +4,7 @@ import {
   defaultStreamHandler,
 } from '@tanstack/react-start/server';
 import { createServerEntry } from '@tanstack/react-start/server-entry';
-import { handlers } from './auth.server';
+import { handlers, getSession } from './auth.server';
 
 const tanstackHandler = createStartHandler(defaultStreamHandler);
 
@@ -83,6 +83,21 @@ async function handleRequest(request: Request): Promise<Response> {
       return withCookiesFixed(request, await handlers.GET({ request }));
     if (request.method === 'POST')
       return withCookiesFixed(request, await handlers.POST({ request }));
+  }
+
+  // Public API endpoint — no authentication required.
+  if (pathname === '/api/unprotected') {
+    return Response.json({ ok: true });
+  }
+
+  // Session-protected API endpoints — return 403 when unauthenticated.
+  if (
+    pathname === '/api/secured' ||
+    pathname === '/api/protected/middleware'
+  ) {
+    const session = await getSession(request);
+    if (!session) return Response.json({ error: 'Forbidden' }, { status: 403 });
+    return Response.json({ ok: true });
   }
 
   // Everything else → TanStack Start SSR router

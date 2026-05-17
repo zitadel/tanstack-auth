@@ -33,6 +33,7 @@ export const { handlers, getSession, signIn, signOut } = TanStackAuth({
   ],
   session: { strategy: 'jwt' },
   secret: process.env.AUTH_SECRET!,
+  trustHost: true,
   callbacks: {
     redirect({ url, baseUrl }) {
       try {
