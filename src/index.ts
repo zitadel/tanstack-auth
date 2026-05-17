@@ -158,8 +158,8 @@ export async function getSession(
   req: Request,
   config: TanStackAuthConfig,
 ): Promise<Session | null> {
-  setEnvDefaults(process.env, config);
   config.basePath ??= '/api/auth';
+  setEnvDefaults(process.env, config);
 
   const url = createActionURL(
     'session',
