@@ -11,6 +11,7 @@ export default [
       'dist/**',
       'build/**',
       '.out/**',
+      'playground/**',
     ],
   },
   ...mridang.configs.recommended,
