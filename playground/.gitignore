@@ -1,0 +1,31 @@
+node_modules
+.npm
+
+# Output
+.output
+.vinxi
+.vercel
+.netlify
+.wrangler
+/.svelte-kit
+/build
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.*
+!.env.example
+!.env.test
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# TanStack/Vinxi generated build artifacts
+app.config.timestamp_*.js
+
+# Devbox
+.devbox/
