@@ -22,7 +22,7 @@ afterEach(() => {
   delete (globalThis as Record<string, unknown>).window;
 });
 
-describe('TanStack Start Auth Client', () => {
+describe('Auth Client', () => {
   describe('signIn', () => {
     it('should set window.location.href to /api/auth/signin/{provider} when provider is given', async () => {
       const { signIn } = await import('../src/client.js');
