@@ -21,7 +21,7 @@ export default {
     'json',
     'node',
   ],
-  testPathIgnorePatterns: ['/node_modules/', '/frontend/', '/dist/'],
+  testPathIgnorePatterns: ['/node_modules/', '/frontend/', '/dist/', '/test/browser/', '/playground/'],
   resetModules: false,
   collectCoverage: true,
   coverageDirectory: './build/coverage',

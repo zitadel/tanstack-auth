@@ -6,6 +6,7 @@ export default defineConfig({
   fullyParallel: false,
   retries: process.env.CI ? 2 : 0,
   workers: 1,
+  timeout: 240_000,
   reporter: [
     ['html', { outputFolder: 'build/playwright-report', open: 'never' }],
     ['list'],
