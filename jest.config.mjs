@@ -25,7 +25,7 @@ export default {
     '/node_modules/',
     '/frontend/',
     '/dist/',
-    '/test/browser/',
+    '/spec/',
     '/playground/',
   ],
   resetModules: false,
@@ -33,7 +33,8 @@ export default {
   coverageDirectory: './build/coverage',
   collectCoverageFrom: ['src/**/*.{ts,tsx,js,jsx}', '!src/**/*.d.ts'],
   coverageReporters: ['clover', 'cobertura', 'lcov'],
-  coveragePathIgnorePatterns: ['/dist/', '/node_modules/'],
+  coveragePathIgnorePatterns: ['/dist/',
+    '/spec/', '/node_modules/'],
   testTimeout: 60000,
   extensionsToTreatAsEsm: ['.ts', '.tsx', '.mts'],
   moduleNameMapper: {
