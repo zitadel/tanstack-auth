@@ -12,6 +12,7 @@ export default {
     'javascript',
     'json',
     'jsx',
+    'tsx',
     'bash',
     'sh',
     'html',
