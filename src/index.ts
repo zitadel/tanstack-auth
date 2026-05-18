@@ -17,11 +17,15 @@ export type {
 
 /**
  * Auth.js configuration for TanStack Start applications.
+ *
+ * @public
  */
 export type TanStackAuthConfig = Omit<AuthConfig, 'raw'>;
 
 /**
  * TanStack Start API route handler context type.
+ *
+ * @public
  */
 export type AuthRequestContext = {
   request: Request;
@@ -54,6 +58,8 @@ export type AuthRequestContext = {
  * import { handlers } from '~/auth.server';
  * export const { GET, POST } = handlers;
  * ```
+ *
+ * @public
  */
 export function TanStackAuth(config: TanStackAuthConfig): {
   handlers: {
@@ -152,10 +158,12 @@ export function TanStackAuth(config: TanStackAuthConfig): {
  * @example
  * ```ts
  * import { getSession } from '@zitadel/tanstack-start-auth';
- * import { authConfig } from '~/auth.server';
+ * import { authOptions } from '~/auth.server';
  *
- * const session = await getSession(request, authConfig);
+ * const session = await getSession(request, authOptions);
  * ```
+ *
+ * @public
  */
 export async function getSession(
   req: Request,
