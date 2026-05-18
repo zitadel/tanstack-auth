@@ -43,7 +43,7 @@
     "test:debug": "jest --verbose --config=jest.config.mjs --runInBand --detectOpenHandles",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "lint": "npx eslint .",
+    "lint": "eslint .",
     "lint:fix": "npx eslint . --fix",
     "depcheck": "npx knip",
     "docs": "typedoc",

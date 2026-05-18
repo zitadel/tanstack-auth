@@ -4,7 +4,7 @@ export default {
   entryPoints: ['src/index.ts', 'src/adapter.ts', 'src/client.ts'],
   out: 'docs',
   tsconfig: './tsconfig.json',
-  readme: 'none',
+  readme: 'README.md',
   excludeInternal: true,
   excludePrivate: true,
   highlightLanguages: [
