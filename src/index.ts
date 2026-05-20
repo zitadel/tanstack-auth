@@ -63,7 +63,7 @@ export type TanStackAuthConfigOrFactory =
  * @example
  * ```ts
  * // app/auth.server.ts — object form
- * import { TanStackAuth } from '@zitadel/tanstack-start-auth';
+ * import { TanStackAuth } from '@zitadel/tanstack-auth';
  * import Zitadel from '@auth/core/providers/zitadel';
  *
  * export const { handlers, getSession } = TanStackAuth({
@@ -75,7 +75,7 @@ export type TanStackAuthConfigOrFactory =
  * @example
  * ```ts
  * // app/auth.server.ts — factory form (request-scoped env)
- * import { TanStackAuth } from '@zitadel/tanstack-start-auth';
+ * import { TanStackAuth } from '@zitadel/tanstack-auth';
  *
  * export const { handlers, getSession } = TanStackAuth((ctx) => ({
  *   providers: [Zitadel({
@@ -201,7 +201,7 @@ export function TanStackAuth(rawConfig: TanStackAuthConfigOrFactory): {
  *
  * @example
  * ```ts
- * import { getSession } from '@zitadel/tanstack-start-auth';
+ * import { getSession } from '@zitadel/tanstack-auth';
  * import { authOptions } from '~/auth.server';
  *
  * const session = await getSession(request, authOptions);
