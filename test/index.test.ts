@@ -1,27 +1,4 @@
-import {
-  describe,
-  expect,
-  it,
-  jest,
-  beforeEach,
-  afterEach,
-} from '@jest/globals';
-
-// Node.js's Response.redirect rejects relative URLs, so we mock it to
-// capture the URL and return a proper 302 response for assertions.
-beforeEach(() => {
-  jest.spyOn(Response, 'redirect').mockImplementation(
-    (url: string | URL, status?: number) =>
-      new Response(null, {
-        status: status ?? 302,
-        headers: { location: String(url) },
-      }),
-  );
-});
-
-afterEach(() => {
-  jest.restoreAllMocks();
-});
+import { describe, expect, it } from '@jest/globals';
 
 describe('Package Exports', () => {
   describe('Main Entry Point', () => {
@@ -103,14 +80,14 @@ describe('Package Exports', () => {
   });
 
   describe('signIn URL construction', () => {
-    it('should redirect to /api/auth/signin/{provider} with a provider', async () => {
+    it('should redirect to /api/auth/signin when a provider is given (provider ignored server-side)', async () => {
       const { TanStackAuth } = await import('../src/index.js');
       const { signIn } = TanStackAuth({ providers: [] });
 
       const response = await signIn('zitadel');
 
       expect(response.status).toBe(302);
-      expect(response.headers.get('location')).toBe('/api/auth/signin/zitadel');
+      expect(response.headers.get('location')).toBe('/api/auth/signin');
     });
 
     it('should redirect to /api/auth/signin when no provider given', async () => {
@@ -131,7 +108,7 @@ describe('Package Exports', () => {
       const location = response.headers.get('location') ?? '';
 
       expect(response.status).toBe(302);
-      expect(location).toContain('/api/auth/signin/zitadel');
+      expect(location).toContain('/api/auth/signin');
       expect(location).toContain('callbackUrl=');
       expect(location).toContain('%2Fdashboard');
     });
@@ -142,7 +119,7 @@ describe('Package Exports', () => {
 
       const response = await signIn('zitadel');
 
-      expect(response.headers.get('location')).toBe('/my-auth/signin/zitadel');
+      expect(response.headers.get('location')).toBe('/my-auth/signin');
     });
 
     it('should strip trailing slash from basePath', async () => {
@@ -151,7 +128,7 @@ describe('Package Exports', () => {
 
       const response = await signIn('zitadel');
 
-      expect(response.headers.get('location')).toBe('/my-auth/signin/zitadel');
+      expect(response.headers.get('location')).toBe('/my-auth/signin');
     });
   });
 

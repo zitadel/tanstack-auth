@@ -110,7 +110,9 @@ export function TanStackAuth(rawConfig: TanStackAuthConfigOrFactory): {
     provider?: string,
     options?: { redirectTo?: string },
   ) => Promise<Response>;
+  signInUrl: (options?: { redirectTo?: string }) => string;
   signOut: (options?: { redirectTo?: string }) => Promise<Response>;
+  signOutUrl: (options?: { redirectTo?: string }) => string;
 } {
   function resolveConfig(context: AuthRequestContext): TanStackAuthConfig {
     const c = typeof rawConfig === 'function' ? rawConfig(context) : rawConfig;
@@ -153,29 +155,63 @@ export function TanStackAuth(rawConfig: TanStackAuthConfigOrFactory): {
     throw new Error((data as { message?: string }).message ?? 'Session error');
   }
 
-  async function signIn(
-    provider?: string,
-    options: { redirectTo?: string } = {},
-  ): Promise<Response> {
+  /**
+   * Returns the relative URL of the sign-in endpoint, with `callbackUrl`
+   * appended when `redirectTo` is provided. Useful when the framework's
+   * native redirect helper takes a URL string (e.g. SvelteKit's
+   * `throw redirect(302, url)`, TanStack Router's
+   * `throw redirect({ href: url })`).
+   */
+  function signInUrl(options: { redirectTo?: string } = {}): string {
     const basePath = defaultBasePath();
     const params = new URLSearchParams();
     if (options.redirectTo) params.set('callbackUrl', options.redirectTo);
     const paramStr = params.toString();
-    const url = provider
-      ? `${basePath}/signin/${provider}${paramStr ? `?${paramStr}` : ''}`
-      : `${basePath}/signin${paramStr ? `?${paramStr}` : ''}`;
-    return Response.redirect(url, 302);
+    return `${basePath}/signin${paramStr ? `?${paramStr}` : ''}`;
+  }
+
+  /**
+   * Returns the relative URL of the sign-out endpoint, with `callbackUrl`
+   * appended when `redirectTo` is provided.
+   */
+  function signOutUrl(options: { redirectTo?: string } = {}): string {
+    const basePath = defaultBasePath();
+    const params = new URLSearchParams();
+    if (options.redirectTo) params.set('callbackUrl', options.redirectTo);
+    const paramStr = params.toString();
+    return `${basePath}/signout${paramStr ? `?${paramStr}` : ''}`;
+  }
+
+  async function signIn(
+    provider?: string,
+    options: { redirectTo?: string } = {},
+  ): Promise<Response> {
+    // The `provider` argument is intentionally ignored on the server side:
+    // Auth.js's per-provider sign-in endpoint (/api/auth/signin/{provider})
+    // requires a POST with a CSRF token, which a 302 redirect cannot
+    // produce. Server-side signIn always routes through the chooser
+    // (/api/auth/signin); when `pages.signIn` is configured, Auth.js then
+    // bounces to the consumer's custom sign-in page (where the POST form
+    // + CSRF live). The `provider` arg is kept in the signature for
+    // parity with client-side signIn() callers.
+    void provider;
+    // Use a raw Response rather than Response.redirect(): the static
+    // Response.redirect() method validates the URL and rejects relative
+    // ones, but we don't have the request origin in this scope. Browsers
+    // accept relative Location headers per RFC 7231 §7.1.2.
+    return new Response(null, {
+      status: 302,
+      headers: { Location: signInUrl(options) },
+    });
   }
 
   async function signOut(
     options: { redirectTo?: string } = {},
   ): Promise<Response> {
-    const basePath = defaultBasePath();
-    const params = new URLSearchParams();
-    if (options.redirectTo) params.set('callbackUrl', options.redirectTo);
-    const paramStr = params.toString();
-    const url = `${basePath}/signout${paramStr ? `?${paramStr}` : ''}`;
-    return Response.redirect(url, 302);
+    return new Response(null, {
+      status: 302,
+      headers: { Location: signOutUrl(options) },
+    });
   }
 
   return {
@@ -185,7 +221,9 @@ export function TanStackAuth(rawConfig: TanStackAuthConfigOrFactory): {
     getSession,
     auth: getSession,
     signIn,
+    signInUrl,
     signOut,
+    signOutUrl,
   };
 }
 
