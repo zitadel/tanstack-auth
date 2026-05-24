@@ -5,6 +5,12 @@ export default {
   out: '.out/docs',
   tsconfig: './tsconfig.json',
   readme: 'README.md',
+  projectDocuments: [
+    'docs/guide/getting-started/introduction.md',
+    'docs/guide/authjs/quick-start.md',
+    'docs/guide/application-side/configuration.md',
+    'docs/guide/advanced/caching.md',
+  ],
   excludeInternal: true,
   excludePrivate: true,
   highlightLanguages: [
