@@ -216,7 +216,6 @@ export function TanStackAuth(rawConfig: TanStackAuthConfigOrFactory): {
     return `${basePath}/signout${paramStr ? `?${paramStr}` : ''}`;
   }
 
-
   /**
    * Server-side helper to start the Auth.js sign-in flow.
    *
@@ -249,7 +248,6 @@ export function TanStackAuth(rawConfig: TanStackAuthConfigOrFactory): {
       headers: { Location: signInUrl(options) },
     });
   }
-
 
   /**
    * Server-side helper to start the Auth.js sign-out flow.
