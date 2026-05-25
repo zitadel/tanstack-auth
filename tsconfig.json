@@ -9,11 +9,11 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "outDir": "dist",
-    "typeRoots": ["./node_modules/@types", "./types"],
     "declaration": true,
     "lib": ["es2023", "dom"]
   },
-  "include": ["src/**/*", "types/**/*", "*.md/**/*.ts"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "**/*.spec.ts", "dist", "test"]
 }
