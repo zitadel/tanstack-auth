@@ -182,6 +182,17 @@ export function TanStackAuth(rawConfig: TanStackAuthConfigOrFactory): {
     return `${basePath}/signout${paramStr ? `?${paramStr}` : ''}`;
   }
 
+
+  /**
+   * Server-side helper to start the Auth.js sign-in flow.
+   *
+   * Returns a `Response` with a 302 + Location header pointing at the
+   * Auth.js sign-in chooser. The `provider` argument is kept in the
+   * signature for parity with client-side `signIn()` callers, but is
+   * intentionally ignored server-side (see inline comment).
+   *
+   * @public
+   */
   async function signIn(
     provider?: string,
     options: { redirectTo?: string } = {},
@@ -205,6 +216,16 @@ export function TanStackAuth(rawConfig: TanStackAuthConfigOrFactory): {
     });
   }
 
+
+  /**
+   * Server-side helper to start the Auth.js sign-out flow.
+   *
+   * Returns a `Response` with a 302 + Location header pointing at the
+   * Auth.js sign-out endpoint. When `redirectTo` is provided it is
+   * appended as `callbackUrl`.
+   *
+   * @public
+   */
   async function signOut(
     options: { redirectTo?: string } = {},
   ): Promise<Response> {
