@@ -165,6 +165,15 @@ describe('Package Exports', () => {
     });
   });
 
+  describe('Standalone getSession export', () => {
+    it('should export getSession as a function with 2 parameters', async () => {
+      const { getSession } = await import('../src/index.js');
+
+      expect(typeof getSession).toBe('function');
+      expect(getSession.length).toBe(2);
+    });
+  });
+
   describe('Adapter Entry Point', () => {
     it('should be importable', async () => {
       const module = await import('../src/adapter.js');
