@@ -12,7 +12,7 @@ idiomatic TanStack patterns for server functions and API routes.
 ### Why?
 
 Modern web applications require robust, secure, and flexible authentication
-systems. Integrating OAuth and session management with TanStack Startapplications requires careful consideration
+systems. Integrating OAuth and session management with TanStack Start applications requires careful consideration
 of framework patterns, server-side rendering, and TypeScript integration.
 
 However, a direct integration isn't always straightforward. Different types
