@@ -1,6 +1,6 @@
 {
   "name": "@zitadel/tanstack-auth",
-  "description": "A comprehensive Auth.js integration for TanStack Start applications with TypeScript support and session management",
+  "description": "A comprehensive authentication integration for TanStack Start applications with TypeScript support and session management",
   "version": "0.1.0",
   "type": "module",
   "main": "dist/index.js",
@@ -85,16 +85,20 @@
     "testcontainers": "^12.0.0"
   },
   "keywords": [
-    "tanstack",
-    "tanstack-start",
-    "react",
     "auth",
     "authentication",
+    "authorization",
+    "authn",
+    "authz",
     "oauth",
+    "oidc",
     "authjs",
     "jwt",
-    "@auth",
-    "@auth/core"
+    "jwks",
+    "pkce",
+    "tanstack",
+    "tanstack-start",
+    "react"
   ],
   "private": false,
   "homepage": "https://github.com/zitadel/tanstack-start-auth",
