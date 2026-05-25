@@ -143,7 +143,7 @@ function IndexPage() {
                         <span className="mr-2 flex h-4 w-4 items-center justify-center rounded-full bg-blue-100 text-xs font-semibold text-blue-600">
                           1
                         </span>
-                        Generate code verifier &amp; challenge
+                        Generate code verifier & challenge
                       </div>
                       <div className="flex items-center text-xs text-gray-600">
                         <span className="mr-2 flex h-4 w-4 items-center justify-center rounded-full bg-blue-100 text-xs font-semibold text-blue-600">
