@@ -42,7 +42,7 @@ effective and less burdensome authentication implementation.
 Install using NPM by using the following command:
 
 ```sh
-npm install @zitadel/tanstack-auth @auth/core
+npm install @zitadel/tanstack-auth
 ```
 
 ## Usage
