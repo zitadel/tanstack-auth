@@ -27,7 +27,7 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zitadel/tanstack-start-auth.git"
+    "url": "git+https://github.com/zitadel/tanstack-auth.git"
   },
   "author": {
     "name": "Mridang Agarwalla",
@@ -100,8 +100,8 @@
     "react"
   ],
   "private": false,
-  "homepage": "https://github.com/zitadel/tanstack-start-auth",
-  "bugs": "https://github.com/zitadel/tanstack-start-auth/issues",
+  "homepage": "https://github.com/zitadel/tanstack-auth",
+  "bugs": "https://github.com/zitadel/tanstack-auth/issues",
   "publishConfig": {
     "access": "public"
   },

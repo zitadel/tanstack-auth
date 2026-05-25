@@ -33,5 +33,5 @@ export default {
       },
     ],
   ],
-  repositoryUrl: 'git+https://github.com/zitadel/tanstack-start-auth.git',
+  repositoryUrl: 'git+https://github.com/zitadel/tanstack-auth.git',
 };
