@@ -1,3 +1,37 @@
+/**
+ * Auth.js integration for TanStack Start.
+ *
+ * Provides authentication via Auth.js with support for OAuth providers,
+ * credentials, JWT sessions, and TanStack Start server file conventions.
+ *
+ * @packageDocumentation
+ *
+ * @example Basic usage
+ * ```ts
+ * // app/auth.server.ts
+ * import { TanStackAuth } from '@zitadel/tanstack-auth';
+ * import Zitadel from '@auth/core/providers/zitadel';
+ *
+ * export const { handlers, getSession, signIn, signOut } = TanStackAuth({
+ *   providers: [Zitadel({ clientId: process.env.ZITADEL_CLIENT_ID! })],
+ * });
+ * ```
+ *
+ * @example Mounting the route handler
+ * ```ts
+ * // app/routes/api/auth/$.ts
+ * import { createServerFileRoute } from '@tanstack/react-start/server';
+ * import { handlers } from '~/auth.server';
+ *
+ * export const ServerRoute = createServerFileRoute().methods({
+ *   GET: handlers.GET,
+ *   POST: handlers.POST,
+ * });
+ * ```
+ *
+ * @public
+ */
+
 import {
   Auth,
   type AuthConfig,
