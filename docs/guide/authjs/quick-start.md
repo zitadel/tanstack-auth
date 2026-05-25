@@ -1,6 +1,6 @@
 ---
 title: Quick Start
-group: Auth.js Provider
+group: OAuth Provider
 children:
   - ./tanstack-auth-handler.md
   - ./session-data.md
@@ -9,10 +9,10 @@ children:
   - ./server-side/rest-api.md
 ---
 
-# Auth.js Quick Start
+# OAuth Quick Start
 
 This guide walks through setting up `@zitadel/tanstack-auth` with the
-Auth.js provider, suitable for OAuth, magic links, and credentials sign-in.
+OAuth provider, suitable for OAuth, magic links, and credentials sign-in.
 
 ## Installation
 
@@ -58,7 +58,7 @@ export const ServerRoute = createServerFileRoute().methods({
 });
 ```
 
-All Auth.js endpoints are now served under `/api/auth/*`.
+All auth endpoints are now served under `/api/auth/*`.
 
 ## Set the secret
 

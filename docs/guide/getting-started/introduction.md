@@ -9,7 +9,7 @@ children:
 
 `@zitadel/tanstack-auth` is an open source library that provides
 authentication for TanStack Start applications. It wraps
-[Auth.js](https://authjs.dev/) (`@auth/core`) to bring OAuth, credentials, and
+auth (`@auth/core`) to bring OAuth, credentials, and
 magic-link authentication to TanStack Start with a native developer
 experience.
 

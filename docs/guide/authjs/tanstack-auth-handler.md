@@ -1,11 +1,11 @@
 ---
 title: TanStackAuth Factory
-group: Auth.js Provider
+group: OAuth Provider
 ---
 
 # TanStackAuth Factory
 
-The `TanStackAuth()` factory wires up the Auth.js handler and returns
+The `TanStackAuth()` factory wires up the auth handler and returns
 helpers bound to your config. Call it once in `app/auth.server.ts`:
 
 ```ts
