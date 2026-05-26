@@ -1,7 +1,7 @@
 {
   "name": "@zitadel/tanstack-auth",
   "description": "A comprehensive authentication integration for TanStack Start applications with TypeScript support and session management",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
