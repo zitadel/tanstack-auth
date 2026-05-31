@@ -110,6 +110,7 @@
     "h3": "^1.15.11",
     "nitropack": "^2.13.4",
     "serialize-javascript": "^7.0.5",
-    "@tanstack/start-server-core": "^1.169.8"
+    "@tanstack/start-server-core": "^1.169.8",
+    "js-yaml": "^4.1.1"
   }
 }
