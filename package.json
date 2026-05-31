@@ -107,6 +107,8 @@
     "@auth/core": "^0.40.0"
   },
   "overrides": {
-    "h3": "^1.15.11"
+    "h3": "^1.15.11",
+    "nitropack": "^2.13.4",
+    "serialize-javascript": "^7.0.5"
   }
 }
