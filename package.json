@@ -105,5 +105,8 @@
   },
   "dependencies": {
     "@auth/core": "^0.40.0"
+  },
+  "overrides": {
+    "h3": "^1.15.11"
   }
 }
