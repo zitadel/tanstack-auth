@@ -104,7 +104,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@auth/core": "^0.40.0"
+    "@auth/core": "^0.41.3"
   },
   "overrides": {
     "h3": "^1.15.11",
